@@ -1,0 +1,1 @@
+# Strapieno user avatar api
