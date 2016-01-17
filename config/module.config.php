@@ -110,11 +110,44 @@ return [
             ],
         ],
     ],
-    'zf-content-validation' => [
-        'Strapieno\User\Api\V1\Rest\Controller' => [
-          //  'input_filter' => 'Strapieno\User\Model\InputFilter\DefaultInputFilter', FIXME
-          //  'POST' => 'Strapieno\User\Model\InputFilter\CreateInputFilter' FIXME
-        ]
-    ]
     */
+    'zf-content-validation' => [
+        'Strapieno\UserAvatar\Api\V1\Rest\Controller' => [
+            'input_filter' => 'UserAvatarInputFilter',
+        ],
+    ],
+    'input_filter_specs' => [
+        'UserAvatarInputFilter' => [
+            [
+                'name' => 'blob',
+                'required' => true,
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+                'validators' => [
+                    0 => [
+                        'name' => 'fileuploadfile',
+                        'break_chain_on_failure' => true,
+                    ],
+                    1 => [
+                        'name' => 'filesize',
+                        'break_chain_on_failure' => true,
+                        'options' => [
+                            'min' => '20KB',
+                            'max' => '8MB',
+                        ],
+                    ],
+                    2 => [
+                        'name' => 'filemimetype',
+                        'options' => [
+                            'mimeType' => [
+                                'image/png',
+                                'image/jpeg',
+                            ],
+                            'magicFile' => false,
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];
