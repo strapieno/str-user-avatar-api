@@ -19,6 +19,7 @@
     "matryoshka-model/zf-apigility-matryoshka": "dev-develop",
     "strapieno/str-user-api" : "dev-develop",
     "strapieno/str-user-model" : "dev-develop",
+    "strapieno/str-user-avatar-model" : "dev-develop",
     "strapieno/str-utils": "dev-develop",
     "ripaclub/zf-apigility-imgman": "dev-develop"
   },
@@ -29,8 +30,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Strapieno\\UserAvatar\\Model\\": "src/",
-      "Strapieno\\UserAvatar\\ModelTest\\": "tests/"
+      "Strapieno\\UserAvatar\\Api\\": "src/",
+      "Strapieno\\UserAvatar\\ApiTest\\": "tests/"
     },
     "classmap": [
       "./Module.php"
@@ -48,6 +49,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:strapieno/str-user-model.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:strapieno/str-user-avatar-model.git"
     },
     {
       "type": "vcs",
