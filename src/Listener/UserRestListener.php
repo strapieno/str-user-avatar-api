@@ -4,21 +4,27 @@ namespace Strapieno\UserAvatar\Api\Listener;
 use Matryoshka\Model\Object\ActiveRecord\ActiveRecordInterface;
 use Matryoshka\Model\Wrapper\Mongo\Criteria\ActiveRecord\ActiveRecordCriteria;
 use Strapieno\User\Model\Entity\UserInterface;
+use Strapieno\User\Model\UserModelAwareInterface;
+use Strapieno\User\Model\UserModelAwareTrait;
 use Strapieno\UserAvatar\Model\Entity\UserAvatarAwareInterface;
 use Zend\EventManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
 use Zend\ServiceManager\AbstractPluginManager;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 
 /**
  * Class UserRestListener
  */
-class UserRestListener implements ListenerAggregateInterface
+class UserRestListener implements ListenerAggregateInterface,
+    ServiceLocatorAwareInterface,
+    UserModelAwareInterface
 {
     use ListenerAggregateTrait;
     use ServiceLocatorAwareTrait;
+    use UserModelAwareTrait;
 
     /**
      * {@inheritdoc}
