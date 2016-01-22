@@ -56,7 +56,7 @@ return [
     ],
     'imgman-apigility' => [
         'imgman-connected' => [
-            'Strapieno\Api\UserAvatar\V1\Rest\ConnectedResource' => [
+            'Strapieno\UserAvatar\Api\V1\Rest\ConnectedResource' => [
                 'service' => 'ImgMan\Service\UserAvatar'
             ],
         ],
