@@ -109,7 +109,7 @@ return [
             'input_filter' => 'UserAvatarInputFilter',
         ],
     ],
-    'input_filter_specs' => [
+    'strapieno_input_filter_specs' => [
         'UserAvatarInputFilter' => [
             [
                 'name' => 'blob',
