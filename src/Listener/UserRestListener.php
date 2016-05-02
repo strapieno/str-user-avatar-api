@@ -57,7 +57,8 @@ class UserRestListener implements ListenerAggregateInterface,
                 ['name' => 'api-rest/user/avatar', 'force_canonical' => true]
             );
 
-            $user->setAvatar($url);
+            $now = new \DateTime();
+            $user->setAvatar($url . '?lastUpdate=' . $now->getTimestamp());
             $user->save();
         }
     }

@@ -74,7 +74,8 @@ return [
             ],
             'page_size' => 10,
             'page_size_param' => 'page_size',
-            'collection_class' => 'Zend\Paginator\Paginator'
+            'collection_class' => 'Zend\Paginator\Paginator',
+            'entity_class' => 'Strapieno\Utils\Model\Entity\ImgMan\UImgManEntity',
         ]
     ],
     'zf-content-negotiation' => [
@@ -91,19 +92,17 @@ return [
             ],
         ],
     ],
-    /*
      'zf-hal' => [
         // map each class (by name) to their metadata mappings
-        'metadata_map' => [
-            'Strapieno\User\Model\Entity\UserEntity' => [
+       'metadata_map' => [
+            'Strapieno\Utils\Model\Entity\ImgMan\UImgManEntity' => [
                 'entity_identifier_name' => 'id',
-                'route_name' => 'api-rest/user',
+                'route_name' => 'api-rest/user/avatar',
                 'route_identifier_name' => 'user_id',
-                'hydrator' => 'UserApiHydrator'
+                'hydrator' => 'UserAvatarApiHydrator',
             ],
         ],
     ],
-    */
     'zf-content-validation' => [
         'Strapieno\UserAvatar\Api\V1\Rest\Controller' => [
             'input_filter' => 'UserAvatarInputFilter',
