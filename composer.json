@@ -20,8 +20,7 @@
     "strapieno/str-user-api" : "dev-develop",
     "strapieno/str-user-model" : "dev-develop",
     "strapieno/str-user-avatar-model" : "dev-develop",
-    "strapieno/str-utils": "dev-develop",
-    "ripaclub/zf-apigility-imgman": "dev-develop"
+    "strapieno/str-utils": "dev-develop"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.7",
@@ -57,10 +56,6 @@
     {
       "type": "vcs",
       "url": "git@github.com:strapieno/str-utils.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:ripaclub/zf-apigility-imgman.git"
     }
   ],
   "authors": [
