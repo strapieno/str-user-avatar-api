@@ -75,7 +75,7 @@ return [
             'page_size' => 10,
             'page_size_param' => 'page_size',
             'collection_class' => 'Zend\Paginator\Paginator',
-            'entity_class' => 'Strapieno\Utils\Model\Entity\ImgMan\ImgManEntity',
+            'entity_class' => 'Strapieno\UserAvatar\Model\Entity\UserAvatarEntity',
         ]
     ],
     'zf-content-negotiation' => [
