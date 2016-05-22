@@ -12,7 +12,7 @@ return [
         ]
     ],
     'user-not-found' => [
-        'api-rest/nightclub/avatar'
+        'api-rest/user/avatar'
     ],
     // Register listener to listener manager
     'service-listeners' => [
