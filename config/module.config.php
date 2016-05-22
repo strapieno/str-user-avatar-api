@@ -11,8 +11,8 @@ return [
             'listenerManager' => 'Strapieno\Utils\Listener\ListenerManager'
         ]
     ],
-    'nightclub-not-found' => [
-        'api-rest/nightclub/review'
+    'user-not-found' => [
+        'api-rest/nightclub/avatar'
     ],
     // Register listener to listener manager
     'service-listeners' => [
