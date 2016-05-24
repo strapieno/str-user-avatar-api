@@ -5,7 +5,7 @@ return [
             'Strapieno\Utils\Listener\ListenerManager' => 'Strapieno\Utils\Listener\ListenerManagerFactory'
         ],
         'invokables' => [
-            'Strapieno\Utils\Delegator\AttachListenerDelegator' =>  'Strapieno\Utils\Delegator\AttachListenerDelegator'
+            'Strapieno\Utils\Delegator\AttachRestResourceListenerDelegator' => 'Strapieno\Utils\Delegator\AttachRestResourceListenerDelegator'
         ],
         'aliases' => [
             'listenerManager' => 'Strapieno\Utils\Listener\ListenerManager'
@@ -24,7 +24,7 @@ return [
                 => 'Strapieno\UserAvatar\Api\Listener\UserRestListener'
         ]
     ],
-    'attach-listeners' => [
+    'attach-resource-listeners' => [
         'Strapieno\UserAvatar\Api\V1\Rest\Controller' => [
             'Strapieno\UserAvatar\Api\Listener\UserRestListener'
         ]
