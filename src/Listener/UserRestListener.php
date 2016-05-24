@@ -4,16 +4,15 @@ namespace Strapieno\UserAvatar\Api\Listener;
 use ImgMan\Apigility\Entity\ImageEntityInterface;
 use ImgMan\Image\SrcAwareInterface;
 use Matryoshka\Model\Object\ActiveRecord\ActiveRecordInterface;
+use Matryoshka\Model\Object\IdentityAwareInterface;
 use Matryoshka\Model\Wrapper\Mongo\Criteria\ActiveRecord\ActiveRecordCriteria;
 use Strapieno\User\Model\Entity\UserInterface;
 use Strapieno\User\Model\UserModelAwareInterface;
 use Strapieno\User\Model\UserModelAwareTrait;
 use Strapieno\UserAvatar\Model\Entity\UserAvatarAwareInterface;
-use Zend\EventManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
-use Zend\Mvc\Router\Http\RouteInterface;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
@@ -55,7 +54,6 @@ class UserRestListener implements ListenerAggregateInterface,
         $image = $e->getParam('image');
         if ($user instanceof UserAvatarAwareInterface && $user instanceof ActiveRecordInterface) {
 
-
             $user->setAvatar($this->getUrlFromImage($image));
             $user->save();
         }
@@ -91,11 +89,11 @@ class UserRestListener implements ListenerAggregateInterface,
     }
 
     /**
-     * @param ImageEntityInterface $image
+     * @param IdentityAwareInterface $image
      * @param $serviceLocator
-     * @return null|string
+     * @return string
      */
-    protected function getUrlFromImage(ImageEntityInterface $image, $serviceLocator)
+    protected function getUrlFromImage(IdentityAwareInterface $image, $serviceLocator)
     {
         $now = new \DateTime();
         if ($image instanceof SrcAwareInterface) {
