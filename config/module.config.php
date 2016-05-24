@@ -32,7 +32,7 @@ return [
     'controllers' => [
         'delegators' => [
             'Strapieno\UserAvatar\Api\V1\Rest\Controller' => [
-                'Strapieno\Utils\Delegator\AttachListenerDelegator',
+                'Strapieno\Utils\Delegator\AttachRestResourceListenerDelegator',
             ]
         ],
     ],

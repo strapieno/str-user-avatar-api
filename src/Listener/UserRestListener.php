@@ -54,7 +54,7 @@ class UserRestListener implements ListenerAggregateInterface,
         $image = $e->getParam('image');
         if ($user instanceof UserAvatarAwareInterface && $user instanceof ActiveRecordInterface) {
 
-            $user->setAvatar($this->getUrlFromImage($image));
+            $user->setAvatar($this->getUrlFromImage($image, $serviceLocator));
             $user->save();
         }
         return $image;
@@ -96,7 +96,7 @@ class UserRestListener implements ListenerAggregateInterface,
     protected function getUrlFromImage(IdentityAwareInterface $image, $serviceLocator)
     {
         $now = new \DateTime();
-        if ($image instanceof SrcAwareInterface) {
+        if ($image instanceof SrcAwareInterface && $image->getSrc()) {
 
             return $image->getSrc(). '?lastUpdate=' . $now->getTimestamp();
         }
