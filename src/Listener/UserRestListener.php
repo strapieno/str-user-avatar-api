@@ -35,7 +35,7 @@ class UserRestListener implements ListenerAggregateInterface,
     public function attach(EventManagerInterface $events)
     {
         $this->listeners[] = $events->attach('update', [$this, 'onPostUpdate']);
-        $this->listeners[] = $events->attach('delete.post', [$this, 'onPostDelete']);
+        $this->listeners[] = $events->attach('delete', [$this, 'onPostDelete']);
     }
 
     /**
