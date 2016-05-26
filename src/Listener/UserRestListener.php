@@ -9,10 +9,12 @@ use Matryoshka\Model\Wrapper\Mongo\Criteria\ActiveRecord\ActiveRecordCriteria;
 use Strapieno\User\Model\Entity\UserInterface;
 use Strapieno\User\Model\UserModelAwareInterface;
 use Strapieno\User\Model\UserModelAwareTrait;
+use Strapieno\UserAvatar\Model\Entity\AvatarAwareInterface;
 use Strapieno\UserAvatar\Model\Entity\UserAvatarAwareInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
+use Zend\Mvc\Router\Http\RouteInterface;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
@@ -52,7 +54,8 @@ class UserRestListener implements ListenerAggregateInterface,
         $id  = $e->getParam('id');
         $user = $this->getUserFromId($id);
         $image = $e->getParam('image');
-        if ($user instanceof UserAvatarAwareInterface && $user instanceof ActiveRecordInterface) {
+
+        if ($user instanceof AvatarAwareInterface && $user instanceof ActiveRecordInterface) {
 
             $user->setAvatar($this->getUrlFromImage($image, $serviceLocator));
             $user->save();
@@ -70,7 +73,7 @@ class UserRestListener implements ListenerAggregateInterface,
         $id  = $e->getParam('id');
         $user = $this->getUserFromId($id);
 
-        if ($user instanceof UserAvatarAwareInterface && $user instanceof ActiveRecordInterface) {
+        if ($user instanceof AvatarAwareInterface && $user instanceof ActiveRecordInterface) {
 
             $user->setAvatar(null);
             $user->save();
@@ -101,6 +104,7 @@ class UserRestListener implements ListenerAggregateInterface,
             return $image->getSrc(). '?lastUpdate=' . $now->getTimestamp();
         }
 
+        /** @var $router RouteInterface */
         $router = $serviceLocator->get('Router');
         $url = $router->assemble(
             ['user_id' => $image->getId()],
