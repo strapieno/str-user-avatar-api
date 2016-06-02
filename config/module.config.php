@@ -17,7 +17,7 @@ return [
     // Register listener to listener manager
     'service-listeners' => [
         'initializers' => [
-            'Strapieno\User\Model\UserModelInizializer'
+            'Strapieno\User\Model\UserModelInitializer'
         ],
         'invokables' => [
             'Strapieno\UserAvatar\Api\Listener\UserRestListener'
