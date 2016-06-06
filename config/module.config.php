@@ -78,7 +78,7 @@ return [
             'page_size' => 10,
             'page_size_param' => 'page_size',
             'collection_class' => 'Zend\Paginator\Paginator',
-            'entity_class' => 'Strapieno\UserAvatar\Model\Entity\UserAvatarEntity',
+            'entity_class' => 'Strapieno\UserAvatar\Model\Entity\AvatarEntity',
         ]
     ],
     'zf-content-negotiation' => [
@@ -98,7 +98,7 @@ return [
      'zf-hal' => [
         // map each class (by name) to their metadata mappings
        'metadata_map' => [
-            'Strapieno\UserAvatar\Model\Entity\UserAvatarEntity' => [
+            'Strapieno\UserAvatar\Model\Entity\AvatarEntity' => [
                 'entity_identifier_name' => 'id',
                 'route_name' => 'api-rest/user/avatar',
                 'route_identifier_name' => 'user_id',

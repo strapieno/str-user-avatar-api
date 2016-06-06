@@ -26,7 +26,7 @@ class UserRestListenerTest extends \PHPUnit_Framework_TestCase
                     'user' => [
                         'type' => 'Segment',
                         'options' => [
-                            'route' => '/user',
+                            'route' => '/user[/:user_id]',
                         ],
                         'child_routes' => [
                             'avatar' => [
