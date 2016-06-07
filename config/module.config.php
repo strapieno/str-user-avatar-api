@@ -102,7 +102,7 @@ return [
                 'entity_identifier_name' => 'id',
                 'route_name' => 'api-rest/user/avatar',
                 'route_identifier_name' => 'user_id',
-                'hydrator' => 'Zend\Stdlib\Hydrator\ClassMethods',
+                'hydrator' => 'Strapieno\Utils\Hydrator\ImageBase64Hydrator',
             ],
         ],
     ],

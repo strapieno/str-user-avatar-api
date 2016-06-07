@@ -55,7 +55,7 @@ class UserRestListener implements ListenerAggregateInterface,
         $id  = $e->getParam('id');
         $user = $this->getUserFromId($id);
         $image = $e->getParam('image');
-        $image->setId($id);
+
         if ($user instanceof AvatarAwareInterface && $user instanceof ActiveRecordInterface) {
 
             $user->setAvatar($this->getUrlFromImage($image, $serviceLocator));
